@@ -916,7 +916,7 @@ def _seed_mcp_servers(session: Session) -> None:
 def seed_demo_data(session: Session) -> None:
     settings = get_settings()
     if not session.get(Tenant, "tenant_demo"):
-        session.add(Tenant(id="tenant_demo", name="Demo Enterprise"))
+        session.add(Tenant(id="tenant_demo", name="王思邈的数字员工"))
 
     if not session.get(PersonaConfig, "tenant_demo"):
         session.add(PersonaConfig(tenant_id="tenant_demo", system_prompt=DEFAULT_PERSONA_PROMPT))
@@ -930,7 +930,7 @@ def seed_demo_data(session: Session) -> None:
                 id="user_demo",
                 tenant_id="tenant_demo",
                 username="user_demo",
-                display_name="Demo User",
+                display_name="公开演示访客",
                 password_hash=hash_password("demo"),
             )
         )
@@ -945,9 +945,9 @@ def seed_demo_data(session: Session) -> None:
                 id="admin",
                 tenant_id="tenant_demo",
                 username="admin",
-                display_name="Administrator",
+                display_name="王思邈",
                 role="admin",
-                password_hash=hash_password("admin"),
+                password_hash=hash_password(settings.demo_admin_password),
             )
         )
     elif admin_user.role != "admin":

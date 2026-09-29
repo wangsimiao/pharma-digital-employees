@@ -7,18 +7,12 @@ import BrandLogo from '../components/BrandLogo';
 import IconFieldClear from '../assets/icons/field-clear.svg?react';
 import IconFieldEye from '../assets/icons/field-eye.svg?react';
 import IconFieldEyeOn from '../assets/icons/field-eye-on.svg?react';
-import loginPreview from '../assets/staffdeck/login-preview.png';
 
 export type LoginPageProps = {
   onLogin: (session: EnterpriseAuthSession) => void;
 };
 
-/**
- * Signed-out landing / login page. Mirrors Figma node 68:201 (`Login_light`):
- * a full-bleed hero with the StaffDeck wordmark and a product-preview placeholder
- * anchored to the bottom. Clicking "登录" slides the credentials form (node 68:1563)
- * down into view in place of the call-to-action button.
- */
+/** Signed-out entry for the public demo and the private admin workspace. */
 export default function LoginPage({ onLogin }: LoginPageProps) {
   const [showForm, setShowForm] = useState(false);
   const [username, setUsername] = useState('');
@@ -68,22 +62,22 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
         right={null}
       />
 
-      <main className="flex flex-1 flex-col items-center px-[32px]">
-        <div className="flex flex-col items-center pt-[60px]">
+      <main className="flex flex-1 flex-col items-center justify-center px-[20px] pb-[60px] sm:px-[32px]">
+        <div className="flex flex-col items-center">
           <span className="flex items-center justify-center rounded-[10px] border-[0.5px] border-[#e3e7f1] bg-[#f6f6f6] px-[20px] py-[6px] text-[14px] text-[#464c5e]">
-            我们来做什么？
+            个人 AI 工作台
           </span>
-          <h1 className="mt-[6px] text-center text-[54px] font-semibold leading-[80px] tracking-[1.08px] text-[#18181a]">
-            StaffDeck
+          <h1 className="mt-[12px] text-center text-[40px] font-semibold leading-[1.2] tracking-[0] text-[#18181a] sm:text-[54px]">
+            王思邈的
             <br />
-            数字员工运营平台
+            数字员工
           </h1>
 
           {!showForm ? (
             <button
               type="button"
               onClick={() => setShowForm(true)}
-              className="mt-[24px] flex items-center justify-center rounded-[10px] bg-[#18181a] px-[36px] py-[10px] text-[16px] font-normal text-white transition-colors hover:bg-[#18181a]/90"
+              className="mt-[28px] flex h-[44px] min-w-[140px] items-center justify-center rounded-[10px] bg-[#15191f] px-[28px] text-[15px] font-medium text-white transition-colors hover:bg-[#242a32] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#15191f]"
             >
               登录
             </button>
@@ -166,14 +160,6 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           )}
         </div>
 
-        <div className="mt-[32px] flex w-full justify-center">
-          <img
-            src={loginPreview}
-            alt="StaffDeck 产品预览"
-            className="h-auto w-full max-w-[1200px] select-none object-contain"
-            draggable={false}
-          />
-        </div>
       </main>
     </div>
   );

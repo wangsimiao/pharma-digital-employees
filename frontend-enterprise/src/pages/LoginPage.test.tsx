@@ -57,12 +57,12 @@ afterEach(() => {
 });
 
 describe('LoginPage', () => {
-  it('shows the original landing hero before revealing credentials', async () => {
+  it('shows the branded landing page before revealing credentials', async () => {
     const user = userEvent.setup();
     renderLogin();
 
-    expect(screen.getByText('我们来做什么？')).toBeTruthy();
-    expect(screen.getByAltText('StaffDeck 产品预览')).toBeTruthy();
+    expect(screen.getByText('个人 AI 工作台')).toBeTruthy();
+    expect(screen.getByRole('heading', { name: '王思邈的 数字员工' })).toBeTruthy();
     expect(screen.queryByLabelText('账号')).toBeNull();
 
     await user.click(screen.getByRole('button', { name: '登录' }));

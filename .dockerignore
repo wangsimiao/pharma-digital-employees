@@ -1,0 +1,11 @@
+.git
+.gitignore
+.venv
+**/.venv
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+**/.vite
+backend/.env
+backend/staffdeck.db
+frontend-enterprise/dist

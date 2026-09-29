@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: wang-simiao-digital-employees
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.15
+      - key: NODE_VERSION
+        value: 20.20.2
+      - key: APP_NAME
+        value: 王思邈的数字员工
+      - key: APP_SECRET
+        generateValue: true
+      - key: DEMO_ADMIN_PASSWORD
+        generateValue: true
+      - key: PUBLIC_API_ENABLED
+        value: "false"
+      - key: CODEX_A2A_ENABLED
+        value: "false"
+      - key: GENERAL_SKILL_RUNTIME_AUTO_INSTALL
+        value: "false"

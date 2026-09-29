@@ -116,7 +116,7 @@ def on_shutdown() -> None:
 
 @app.get("/api/health", tags=["health"])
 def health() -> dict[str, str]:
-    return {"status": "ok", "app": "StaffDeck"}
+    return {"status": "ok", "app": "王思邈的数字员工"}
 
 
 app.include_router(app_updates.router)
